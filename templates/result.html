@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Status Result</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .result {
+            width: 350px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+
+        .pending {
+            color: orange;
+            font-weight: bold;
+        }
+
+        .failed {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="result">
+
+        <h1>Payment Status</h1>
+
+        <p><b>Transaction ID:</b> {{ transaction_id }}</p>
+
+        <p><b>Customer Name:</b> {{ customer_name }}</p>
+
+        <p><b>Amount:</b> ₹{{ amount }}</p>
+
+        <p>
+            <b>Status:</b>
+
+            {% if status == "SUCCESS" %}
+                <span class="success">{{ status }}</span>
+
+            {% elif status == "PENDING" %}
+                <span class="pending">{{ status }}</span>
+
+            {% else %}
+                <span class="failed">{{ status }}</span>
+            {% endif %}
+
+        </p>
+
+        <br>
+
+        <a href="/">Check Another Payment</a>
+
+    </div>
+
+</body>
+</html>
